@@ -1,15 +1,1 @@
-﻿{
-  "name": "Time Matrix - منظم الوقت المتقدم",
-  "short_name": "TimeMatrix",
-  "start_url": "/KMO/",
-  "display": "standalone",
-  "background_color": "#0f172a",
-  "theme_color": "#0f172a",
-  "icons": [
-    {
-      "src": "https://cdn-icons-png.flaticon.com/512/3652/3652191.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
-  ]
-}
+﻿{"name":"Time Matrix - منظم الوقت المتقدم","short_name":"TimeMatrix","start_url":"/KMO/","display":"standalone","background_color":"#0f172a","theme_color":"#0f172a","icons":[{"src":"https://cdn-icons-png.flaticon.com/512/3652/3652191.png","sizes":"512x512","type":"image/png"}]}
