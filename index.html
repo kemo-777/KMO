@@ -1,12 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl" class="dark">
 <head>
-    <script src="i18n.js"></script>
     <link rel="manifest" href="manifest.json" />
     <meta name="google-site-verification" content="4I5Pig9NpA-N418ni5e4n2GXMrYGIy-Yd6Wi-C6E26k" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ظ…ظڈظ†ط¸ظگظ‘ظ… ط§ظ„ظˆظ‚طھ ط§ظ„ظ…طھظ‚ط¯ظ… - Custom Time Matrix</title>
+    <title>مُنظِّم الوقت المتقدم - Custom Time Matrix</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -111,29 +110,15 @@
     <!-- Header / Nav -->
     <header class="sticky top-0 z-40 glass-card border-b border-slate-200/50 dark:border-slate-800/50 px-4 lg:px-8 py-3">
         <div class="max-w-7xl mx-auto flex items-center justify-between">
-<div class="relative inline-block text-left mr-2" x-data="{ lang: localStorage.getItem('site_lang') || 'ar' }">
-  <select 
-    x-model="lang" 
-    @change="localStorage.setItem('site_lang', lang); location.reload();"
-    class="bg-slate-800 text-white text-xs md:text-sm rounded-lg px-2.5 py-1.5 border border-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer">
-    <option value="ar">العربية</option>
-    <option value="en">English</option>
-    <option value="de">Deutsch</option>
-    <option value="fr">Français</option>
-    <option value="es">Espaol</option>
-    <option value="ru">Русский</option>
-    <option value="zh">中文</option>
-  </select>
-</div>
             <div class="flex items-center space-x-3 space-x-reverse">
                 <div class="p-2.5 bg-gradient-to-tr from-teal-500 to-indigo-600 rounded-xl text-white shadow-lg shadow-teal-500/20">
                     <i data-lucide="sliders" class="w-6 h-6"></i>
                 </div>
                 <div>
                     <h1 class="text-xl font-bold bg-gradient-to-r from-teal-500 to-indigo-500 bg-clip-text text-transparent">
-                        ط¥ط¯ط§ط±ط© ظˆطھظ‚ط³ظٹظ… ط§ظ„ظˆظ‚طھ ط§ظ„ظ…طھظ‚ط¯ظ… <span class="text-xs font-normal text-slate-400 dark:text-slate-500 font-mono">Time Matrix Pro</span>
+                        إدارة وتقسيم الوقت المتقدم <span class="text-xs font-normal text-slate-400 dark:text-slate-500 font-mono">Time Matrix Pro</span>
                     </h1>
-                    <p class="text-xs text-slate-500 dark:text-slate-400">طھط®طµظٹطµ ط§ظ„ط³ط§ط¹ط§طھطŒ ط§ظ„ط£ظ‚ط³ط§ظ…طŒ ظˆط§ظ„ظ…ط¤ظ‚طھ ط§ظ„ط°ظƒظٹ ظ…ط¹ ط¬ط±ط³ ط§ظ„طھظ†ط¨ظٹظ‡</p>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">تخصيص الساعات، الأقسام، والمؤقت الذكي مع جرس التنبيه</p>
                 </div>
             </div>
 
@@ -144,7 +129,7 @@
                 </div>
 
                 <!-- Mute / Unmute Bell Sound Button -->
-                <button @click="soundMuted = !soundMuted; saveData();" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 transition-colors border border-slate-200 dark:border-slate-800" :title="soundMuted ? 'طھظپط¹ظٹظ„ ط¬ط±ط³ ط§ظ„طھظ†ط¨ظٹظ‡' : 'ظƒطھظ… ط¬ط±ط³ ط§ظ„طھظ†ط¨ظٹظ‡'">
+                <button @click="soundMuted = !soundMuted; saveData();" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 transition-colors border border-slate-200 dark:border-slate-800" :title="soundMuted ? 'تفعيل جرس التنبيه' : 'كتم جرس التنبيه'">
                     <i x-show="!soundMuted" data-lucide="bell" class="w-5 h-5 text-teal-500"></i>
                     <i x-show="soundMuted" data-lucide="bell-off" class="w-5 h-5 text-rose-500"></i>
                 </button>
@@ -154,7 +139,7 @@
                     <i x-show="!darkMode" data-lucide="moon" class="w-5 h-5 text-indigo-600"></i>
                 </button>
 
-                <button @click="resetData()" class="p-2.5 rounded-xl text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-950/30 transition-colors border border-transparent hover:border-rose-200 dark:hover:border-rose-900" title="ط¥ط¹ط§ط¯ط© ط¶ط¨ط· ط§ظ„ط¨ظٹط§ظ†ط§طھ">
+                <button @click="resetData()" class="p-2.5 rounded-xl text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-950/30 transition-colors border border-transparent hover:border-rose-200 dark:hover:border-rose-900" title="إعادة ضبط البيانات">
                     <i data-lucide="rotate-ccw" class="w-5 h-5"></i>
                 </button>
             </div>
@@ -169,14 +154,14 @@
             <div class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200/60 dark:border-slate-800/60 pb-4">
                 <div class="flex items-center gap-2">
                     <i data-lucide="target" class="w-5 h-5 text-teal-500"></i>
-                    <h2 class="text-lg font-bold">طھط­ط¯ظٹط¯ ط¥ط¬ظ…ط§ظ„ظٹ ط§ظ„ط³ط§ط¹ط§طھ ط§ظ„ظ…ط³طھظ‡ط¯ظپط©</h2>
+                    <h2 class="text-lg font-bold">تحديد إجمالي الساعات المستهدفة</h2>
                 </div>
                 
                 <!-- Target Hours Custom Input -->
                 <div class="flex items-center gap-3 bg-slate-100 dark:bg-slate-900 p-1.5 px-3 rounded-2xl border border-slate-200 dark:border-slate-800">
-                    <span class="text-xs text-slate-500 dark:text-slate-400 font-medium">ط¥ط¬ظ…ط§ظ„ظٹ ط§ظ„ظ‡ط¯ظپ:</span>
+                    <span class="text-xs text-slate-500 dark:text-slate-400 font-medium">إجمالي الهدف:</span>
                     <input type="number" min="1" max="168" step="0.5" x-model.number="targetHours" @input="saveData(); updateChart()" class="w-20 px-2 py-1 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg text-center font-bold text-sm focus:outline-none focus:ring-2 focus:ring-teal-500">
-                    <span class="text-xs font-bold text-teal-500">ط³ط§ط¹ط©</span>
+                    <span class="text-xs font-bold text-teal-500">ساعة</span>
                 </div>
             </div>
 
@@ -185,8 +170,8 @@
                 <!-- Stat 1 -->
                 <div class="p-4 rounded-2xl bg-slate-100/50 dark:bg-slate-900/50 border border-slate-200/50 dark:border-slate-800/50 flex items-center justify-between">
                     <div>
-                        <div class="text-xs text-slate-500 dark:text-slate-400">ط§ظ„ط³ط§ط¹ط§طھ ط§ظ„ظ…ط®طµطµط©</div>
-                        <div class="text-xl font-bold mt-1"><span x-text="totalAllocatedHours.toFixed(1)"></span> <span class="text-xs font-normal">ط³ط§ط¹ط©</span></div>
+                        <div class="text-xs text-slate-500 dark:text-slate-400">الساعات المخصصة</div>
+                        <div class="text-xl font-bold mt-1"><span x-text="totalAllocatedHours.toFixed(1)"></span> <span class="text-xs font-normal">ساعة</span></div>
                     </div>
                     <div class="p-3 bg-teal-500/10 text-teal-500 rounded-xl">
                         <i data-lucide="clock" class="w-5 h-5"></i>
@@ -196,9 +181,9 @@
                 <!-- Stat 2 -->
                 <div class="p-4 rounded-2xl bg-slate-100/50 dark:bg-slate-900/50 border border-slate-200/50 dark:border-slate-800/50 flex items-center justify-between">
                     <div>
-                        <div class="text-xs text-slate-500 dark:text-slate-400">ط§ظ„ط³ط§ط¹ط§طھ ط§ظ„ظ…طھط¨ظ‚ظٹط©</div>
+                        <div class="text-xs text-slate-500 dark:text-slate-400">الساعات المتبقية</div>
                         <div class="text-xl font-bold mt-1" :class="remainingHours < 0 ? 'text-rose-500' : 'text-indigo-500'">
-                            <span x-text="remainingHours.toFixed(1)"></span> <span class="text-xs font-normal">ط³ط§ط¹ط©</span>
+                            <span x-text="remainingHours.toFixed(1)"></span> <span class="text-xs font-normal">ساعة</span>
                         </div>
                     </div>
                     <div class="p-3 rounded-xl" :class="remainingHours < 0 ? 'bg-rose-500/10 text-rose-500' : 'bg-indigo-500/10 text-indigo-500'">
@@ -209,8 +194,8 @@
                 <!-- Stat 3 -->
                 <div class="p-4 rounded-2xl bg-slate-100/50 dark:bg-slate-900/50 border border-slate-200/50 dark:border-slate-800/50 flex items-center justify-between">
                     <div>
-                        <div class="text-xs text-slate-500 dark:text-slate-400">ظ…ظ‡ط§ظ… ط§ظ„ط¬ط¯ظˆظ„</div>
-                        <div class="text-xl font-bold mt-1"><span x-text="tasks.length"></span> <span class="text-xs font-normal">ظ…ظ‡ظ…ط©</span></div>
+                        <div class="text-xs text-slate-500 dark:text-slate-400">مهام الجدول</div>
+                        <div class="text-xl font-bold mt-1"><span x-text="tasks.length"></span> <span class="text-xs font-normal">مهمة</span></div>
                     </div>
                     <div class="p-3 bg-amber-500/10 text-amber-500 rounded-xl">
                         <i data-lucide="calendar-check" class="w-5 h-5"></i>
@@ -220,8 +205,8 @@
                 <!-- Stat 4 -->
                 <div class="p-4 rounded-2xl bg-slate-100/50 dark:bg-slate-900/50 border border-slate-200/50 dark:border-slate-800/50 flex items-center justify-between">
                     <div>
-                        <div class="text-xs text-slate-500 dark:text-slate-400">ط¥ط¬ظ…ط§ظ„ظٹ ظ…ط¯ط© ط§ظ„ظ…ظ‡ط§ظ…</div>
-                        <div class="text-xl font-bold mt-1"><span x-text="scheduledTasksTotalHours.toFixed(1)"></span> <span class="text-xs font-normal">ط³ط§ط¹ط©</span></div>
+                        <div class="text-xs text-slate-500 dark:text-slate-400">إجمالي مدة المهام</div>
+                        <div class="text-xl font-bold mt-1"><span x-text="scheduledTasksTotalHours.toFixed(1)"></span> <span class="text-xs font-normal">ساعة</span></div>
                     </div>
                     <div class="p-3 bg-emerald-500/10 text-emerald-500 rounded-xl">
                         <i data-lucide="list-checks" class="w-5 h-5"></i>
@@ -232,7 +217,7 @@
             <!-- Dynamic Gauge Progress Bar -->
             <div class="space-y-1.5 pt-2">
                 <div class="flex justify-between text-xs font-medium">
-                    <span>ظ†ط³ط¨ط© ط§ظ„طھظˆط²ظٹط¹ ظ…ظ† ط§ظ„ظ‡ط¯ظپ ط§ظ„ظƒظ„ظٹ</span>
+                    <span>نسبة التوزيع من الهدف الكلي</span>
                     <span x-text="((totalAllocatedHours / targetHours) * 100).toFixed(0) + '%'"></span>
                 </div>
                 <div class="w-full h-3 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden p-0.5 border border-slate-300/30 dark:border-slate-700/30">
@@ -245,7 +230,7 @@
             <!-- Alert Messages -->
             <div x-show="totalAllocatedHours > targetHours" class="p-3 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-600 dark:text-rose-400 text-xs flex items-center gap-2">
                 <i data-lucide="alert-circle" class="w-4 h-4 shrink-0"></i>
-                <span>طھط­ط°ظٹط±: طھط¬ط§ظˆط²طھ ط§ظ„ط³ط§ط¹ط§طھ ط§ظ„ظ…ط®طµطµط© ط§ظ„ظ‡ط¯ظپ ط§ظ„ظƒظ„ظٹ ط¨ظ…ظ‚ط¯ط§ط± <strong x-text="(totalAllocatedHours - targetHours).toFixed(1)"></strong> ط³ط§ط¹ط©!</span>
+                <span>تحذير: تجاوزت الساعات المخصصة الهدف الكلي بمقدار <strong x-text="(totalAllocatedHours - targetHours).toFixed(1)"></strong> ساعة!</span>
             </div>
         </div>
 
@@ -257,13 +242,13 @@
                 <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-4">
                     <div class="flex items-center gap-2">
                         <i data-lucide="pie-chart" class="w-5 h-5 text-teal-500"></i>
-                        <h2 class="text-lg font-bold">طھظˆط²ظٹط¹ ط§ظ„ط£ظ‚ط³ط§ظ… ظˆط§ظ„طھطµظ†ظٹظپط§طھ</h2>
+                        <h2 class="text-lg font-bold">توزيع الأقسام والتصنيفات</h2>
                     </div>
 
                     <!-- Add New Category Button -->
                     <button @click="openCatModal = true" class="px-3 py-1.5 bg-slate-100 dark:bg-slate-900 hover:bg-slate-200 dark:hover:bg-slate-800 text-xs font-semibold rounded-xl border border-slate-200 dark:border-slate-800 flex items-center gap-1.5 transition-colors">
                         <i data-lucide="plus" class="w-3.5 h-3.5 text-teal-500"></i>
-                        <span>ط¥ط¶ط§ظپط© ظ‚ط³ظ… ط¬ط¯ظٹط¯</span>
+                        <span>إضافة قسم جديد</span>
                     </button>
                 </div>
 
@@ -280,11 +265,11 @@
                                     <!-- Direct Custom Number Input -->
                                     <div class="flex items-center gap-1">
                                         <input type="number" min="0" :max="targetHours" step="0.5" x-model.number="cat.hours" @input="saveData(); updateChart()" class="w-16 text-center px-1 py-0.5 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg text-xs font-bold focus:outline-none focus:ring-2 focus:ring-teal-500">
-                                        <span class="text-xs text-slate-500">ط³ط§ط¹ط©</span>
+                                        <span class="text-xs text-slate-500">ساعة</span>
                                     </div>
                                     
                                     <!-- Delete Category -->
-                                    <button @click="deleteCategory(index)" class="text-slate-400 hover:text-rose-500 p-1 transition-colors" title="ط­ط°ظپ ط§ظ„ظ‚ط³ظ…" x-show="categories.length > 1">
+                                    <button @click="deleteCategory(index)" class="text-slate-400 hover:text-rose-500 p-1 transition-colors" title="حذف القسم" x-show="categories.length > 1">
                                         <i data-lucide="trash-2" class="w-4 h-4"></i>
                                     </button>
                                 </div>
@@ -302,7 +287,7 @@
                 <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-4">
                     <div class="flex items-center gap-2">
                         <i data-lucide="donut" class="w-5 h-5 text-indigo-500"></i>
-                        <h2 class="text-lg font-bold">ط§ظ„ط±ط³ظ… ط§ظ„ط¨ظٹط§ظ†ظٹ ظ„ظ„طھظˆط²ظٹط¹</h2>
+                        <h2 class="text-lg font-bold">الرسم البياني للتوزيع</h2>
                     </div>
                 </div>
 
@@ -310,7 +295,7 @@
                     <canvas id="timeChart"></canvas>
                     <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
                         <span class="text-2xl font-black text-slate-800 dark:text-slate-100" x-text="((totalAllocatedHours / targetHours) * 100).toFixed(0) + '%'"></span>
-                        <span class="text-xs text-slate-400">ظ…ظ† ط§ظ„ظ‡ط¯ظپ</span>
+                        <span class="text-xs text-slate-400">من الهدف</span>
                     </div>
                 </div>
 
@@ -322,7 +307,7 @@
                                 <span class="w-2.5 h-2.5 rounded-full shrink-0" :style="'background-color:' + cat.color"></span>
                                 <span class="truncate" x-text="cat.name"></span>
                             </div>
-                            <span class="font-bold shrink-0" x-text="cat.hours + 'ط³'"></span>
+                            <span class="font-bold shrink-0" x-text="cat.hours + 'س'"></span>
                         </div>
                     </template>
                 </div>
@@ -337,12 +322,12 @@
                 <div class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-4">
                     <div class="flex items-center gap-2">
                         <i data-lucide="calendar-range" class="w-5 h-5 text-teal-500"></i>
-                        <h2 class="text-lg font-bold">ط§ظ„ط¬ط¯ظˆظ„ ط§ظ„ط²ظ…ظ†ظٹ ط¨ط§ظ„ظˆظ‚طھ ط§ظ„ط¯ظ‚ظٹظ‚</h2>
+                        <h2 class="text-lg font-bold">الجدول الزمني بالوقت الدقيق</h2>
                     </div>
 
                     <button @click="openTaskModal = true" class="px-4 py-2 bg-gradient-to-r from-teal-500 to-indigo-600 hover:from-teal-600 hover:to-indigo-700 text-white font-medium text-xs rounded-xl flex items-center gap-2 shadow-md shadow-teal-500/10 transition-all active:scale-95">
                         <i data-lucide="plus" class="w-4 h-4"></i>
-                        <span>ط¥ط¶ط§ظپط© ظ†ط´ط§ط· / ظ…ظ‡ظ…ط©</span>
+                        <span>إضافة نشاط / مهمة</span>
                     </button>
                 </div>
 
@@ -358,7 +343,7 @@
                                     <h4 class="text-sm font-semibold" x-text="task.title"></h4>
                                     <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5 flex items-center gap-2">
                                         <span x-text="getCatName(task.categoryId)"></span>
-                                        <span>â€¢</span>
+                                        <span>•</span>
                                         <span class="font-mono" x-text="calculateTaskDuration(task.startTime, task.endTime)"></span>
                                     </p>
                                 </div>
@@ -374,10 +359,10 @@
 
                             <!-- Actions -->
                             <div class="flex items-center gap-2">
-                                <button @click="setPomodoroTask(task.title)" class="p-2 text-slate-400 hover:text-teal-500 hover:bg-teal-500/10 rounded-xl transition-colors" title="ط¨ط¯ط، طھط±ظƒظٹط² ط¨ظˆظ…ظˆط¯ظˆط±ظˆ">
+                                <button @click="setPomodoroTask(task.title)" class="p-2 text-slate-400 hover:text-teal-500 hover:bg-teal-500/10 rounded-xl transition-colors" title="بدء تركيز بومودورو">
                                     <i data-lucide="play-circle" class="w-4 h-4"></i>
                                 </button>
-                                <button @click="deleteTask(task.id)" class="p-2 text-slate-400 hover:text-rose-500 hover:bg-rose-500/10 rounded-xl transition-colors" title="ط­ط°ظپ">
+                                <button @click="deleteTask(task.id)" class="p-2 text-slate-400 hover:text-rose-500 hover:bg-rose-500/10 rounded-xl transition-colors" title="حذف">
                                     <i data-lucide="trash-2" class="w-4 h-4"></i>
                                 </button>
                             </div>
@@ -386,7 +371,7 @@
 
                     <div x-show="tasks.length === 0" class="text-center py-12 text-slate-400 border border-dashed border-slate-200 dark:border-slate-800 rounded-2xl">
                         <i data-lucide="calendar-x" class="w-8 h-8 mx-auto mb-2 opacity-50"></i>
-                        <p class="text-xs">ظ„ط§ طھظˆط¬ط¯ ظ…ظ‡ط§ظ… ط£ظˆ ط£ظ†ط´ط·ط© ظ…ط¶ط§ظپط© ط­ط§ظ„ظٹط§ظ‹. ط§ط¶ط؛ط· ط¹ظ„ظ‰ "ط¥ط¶ط§ظپط© ظ†ط´ط§ط·" ظ„ظ„ط¨ط¯ط،.</p>
+                        <p class="text-xs">لا توجد مهام أو أنشطة مضافة حالياً. اضغط على "إضافة نشاط" للبدء.</p>
                     </div>
                 </div>
             </div>
@@ -396,32 +381,32 @@
                 <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-4">
                     <div class="flex items-center gap-2">
                         <i data-lucide="timer" class="w-5 h-5 text-indigo-500"></i>
-                        <h2 class="text-lg font-bold">ظ…ط¤ظ‚طھ ط¨ظˆظ…ظˆط¯ظˆط±ظˆ ظˆط§ظ„ط¬ط±ط³</h2>
+                        <h2 class="text-lg font-bold">مؤقت بومودورو والجرس</h2>
                     </div>
 
                     <!-- Test Chime Bell Button -->
-                    <button @click="playChimeSound()" class="px-2.5 py-1 bg-teal-500/10 hover:bg-teal-500/20 text-teal-600 dark:text-teal-400 text-xs font-semibold rounded-lg flex items-center gap-1 transition-colors" title="طھط¬ط±ط¨ط© ظˆطھظپط­طµ ط§ظ„ط¬ط±ط³ ط§ظ„طµظˆطھظٹ">
+                    <button @click="playChimeSound()" class="px-2.5 py-1 bg-teal-500/10 hover:bg-teal-500/20 text-teal-600 dark:text-teal-400 text-xs font-semibold rounded-lg flex items-center gap-1 transition-colors" title="تجربة وتفحص الجرس الصوتي">
                         <i data-lucide="volume-2" class="w-3.5 h-3.5"></i>
-                        <span>طھط¬ط±ط¨ط© ط§ظ„ط¬ط±ط³</span>
+                        <span>تجربة الجرس</span>
                     </button>
                 </div>
 
                 <!-- Custom Pomo Duration Inputs -->
                 <div class="grid grid-cols-2 gap-3 text-xs">
                     <div>
-                        <label class="block text-slate-500 mb-1">ط¯ظ‚ط§ط¦ظ‚ ط§ظ„ط¹ظ…ظ„:</label>
+                        <label class="block text-slate-500 mb-1">دقائق العمل:</label>
                         <input type="number" min="1" max="120" x-model.number="pomoWorkMins" @change="if(pomoMode==='work' && !pomoRunning) resetPomodoro()" class="w-full px-3 py-1.5 bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl text-center font-bold">
                     </div>
                     <div>
-                        <label class="block text-slate-500 mb-1">ط¯ظ‚ط§ط¦ظ‚ ط§ظ„ط±ط§ط­ط©:</label>
+                        <label class="block text-slate-500 mb-1">دقائق الراحة:</label>
                         <input type="number" min="1" max="60" x-model.number="pomoBreakMins" @change="if(pomoMode==='break' && !pomoRunning) resetPomodoro()" class="w-full px-3 py-1.5 bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl text-center font-bold">
                     </div>
                 </div>
 
                 <!-- Active Task Title -->
                 <div class="text-center">
-                    <span class="text-xs text-slate-400 block mb-1">ط§ظ„ظ†ط´ط§ط· ط§ظ„ط­ط§ظ„ظٹ:</span>
-                    <h3 class="text-sm font-semibold text-teal-600 dark:text-teal-400 truncate max-w-[200px] mx-auto" x-text="pomoActiveTask || 'ط¬ظ„ط³ط© طھط±ظƒظٹط² ط¹ط§ظ…ط©'"></h3>
+                    <span class="text-xs text-slate-400 block mb-1">النشاط الحالي:</span>
+                    <h3 class="text-sm font-semibold text-teal-600 dark:text-teal-400 truncate max-w-[200px] mx-auto" x-text="pomoActiveTask || 'جلسة تركيز عامة'"></h3>
                 </div>
 
                 <!-- Timer Ring -->
@@ -439,7 +424,7 @@
 
                     <div class="absolute flex flex-col items-center">
                         <span class="text-3xl font-mono font-bold tracking-tight" x-text="formatPomoTime()"></span>
-                        <span class="text-xs text-slate-400 mt-1" x-text="pomoMode === 'work' ? 'ظˆط¶ط¹ ط§ظ„طھط±ظƒظٹط²' : 'ظˆط¶ط¹ ط§ظ„ط§ط³طھط±ط§ط­ط©'"></span>
+                        <span class="text-xs text-slate-400 mt-1" x-text="pomoMode === 'work' ? 'وضع التركيز' : 'وضع الاستراحة'"></span>
                     </div>
                 </div>
 
@@ -449,7 +434,7 @@
                         <i x-show="!pomoRunning" data-lucide="play" class="w-6 h-6 fill-current"></i>
                         <i x-show="pomoRunning" data-lucide="pause" class="w-6 h-6 fill-current"></i>
                     </button>
-                    <button @click="resetPomodoro()" class="p-3 rounded-full bg-slate-100 dark:bg-slate-900 text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 transition-colors" title="ط¥ط¹ط§ط¯ط© ط§ظ„طھط¹ظٹظٹظ†">
+                    <button @click="resetPomodoro()" class="p-3 rounded-full bg-slate-100 dark:bg-slate-900 text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 transition-colors" title="إعادة التعيين">
                         <i data-lucide="rotate-ccw" class="w-5 h-5"></i>
                     </button>
                 </div>
@@ -463,7 +448,7 @@
     <div x-show="openCatModal" x-transition.opacity class="fixed inset-0 z-50 bg-slate-950/60 backdrop-blur-sm flex items-center justify-center p-4">
         <div @click.away="openCatModal = false" class="glass-card bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 w-full max-w-md rounded-3xl p-6 space-y-5 shadow-2xl">
             <div class="flex justify-between items-center border-b border-slate-200 dark:border-slate-800 pb-3">
-                <h3 class="font-bold text-lg">ط¥ط¶ط§ظپط© طھطµظ†ظٹظپ / ظ‚ط³ظ… ط¬ط¯ظٹط¯</h3>
+                <h3 class="font-bold text-lg">إضافة تصنيف / قسم جديد</h3>
                 <button @click="openCatModal = false" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
                     <i data-lucide="x" class="w-5 h-5"></i>
                 </button>
@@ -471,24 +456,24 @@
 
             <form @submit.prevent="addCategory()" class="space-y-4">
                 <div>
-                    <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1">ط§ط³ظ… ط§ظ„ظ‚ط³ظ…</label>
-                    <input type="text" x-model="newCat.name" required placeholder="ظ…ط«ط§ظ„: ط§ظ„ظ‚ط±ط§ط،ط©طŒ ط§ظ„ظ…ط´ط§ط±ظٹط¹..." class="w-full px-4 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500">
+                    <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1">اسم القسم</label>
+                    <input type="text" x-model="newCat.name" required placeholder="مثال: القراءة، المشاريع..." class="w-full px-4 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500">
                 </div>
 
                 <div class="grid grid-cols-2 gap-4">
                     <div>
-                        <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1">ط§ظ„ط³ط§ط¹ط§طھ ط§ظ„ط£ظˆظ„ظٹط©</label>
+                        <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1">الساعات الأولية</label>
                         <input type="number" min="0" step="0.5" x-model.number="newCat.hours" class="w-full px-4 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500">
                     </div>
 
                     <div>
-                        <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1">ظ„ظˆظ† ط§ظ„ظ‚ط³ظ…</label>
+                        <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1">لون القسم</label>
                         <input type="color" x-model="newCat.color" class="w-full h-10 p-1 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 cursor-pointer">
                     </div>
                 </div>
 
                 <button type="submit" class="w-full py-3 bg-gradient-to-r from-teal-500 to-indigo-600 hover:from-teal-600 hover:to-indigo-700 text-white font-bold text-sm rounded-xl transition-all shadow-lg shadow-teal-500/20">
-                    ط¥ط¶ط§ظپط© ط§ظ„ظ‚ط³ظ…
+                    إضافة القسم
                 </button>
             </form>
         </div>
@@ -498,7 +483,7 @@
     <div x-show="openTaskModal" x-transition.opacity class="fixed inset-0 z-50 bg-slate-950/60 backdrop-blur-sm flex items-center justify-center p-4">
         <div @click.away="openTaskModal = false" class="glass-card bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 w-full max-w-md rounded-3xl p-6 space-y-5 shadow-2xl">
             <div class="flex justify-between items-center border-b border-slate-200 dark:border-slate-800 pb-3">
-                <h3 class="font-bold text-lg">ط¥ط¶ط§ظپط© ظ†ط´ط§ط· / ظ…ظ‡ظ…ط© ط¬ط¯ظٹط¯ط©</h3>
+                <h3 class="font-bold text-lg">إضافة نشاط / مهمة جديدة</h3>
                 <button @click="openTaskModal = false" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
                     <i data-lucide="x" class="w-5 h-5"></i>
                 </button>
@@ -506,12 +491,12 @@
 
             <form @submit.prevent="addTask()" class="space-y-4">
                 <div>
-                    <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1">ط¹ظ†ظˆط§ظ† ط§ظ„ظ†ط´ط§ط· ط£ظˆ ط§ظ„ظ…ظ‡ظ…ط©</label>
-                    <input type="text" x-model="newTask.title" required placeholder="ظ…ط«ط§ظ„: ط§ط¬طھظ…ط§ط¹ ظپط±ظٹظ‚ ط§ظ„ط¹ظ…ظ„طŒ ط§ظ„طھظ…ط±ظٹظ†..." class="w-full px-4 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500">
+                    <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1">عنوان النشاط أو المهمة</label>
+                    <input type="text" x-model="newTask.title" required placeholder="مثال: اجتماع فريق العمل، التمرين..." class="w-full px-4 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500">
                 </div>
 
                 <div>
-                    <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1">ط§ظ„ظ‚ط³ظ… / ط§ظ„طھطµظ†ظٹظپ</label>
+                    <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1">القسم / التصنيف</label>
                     <select x-model="newTask.categoryId" class="w-full px-4 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500">
                         <template x-for="cat in categories" :key="cat.id">
                             <option :value="cat.id" x-text="cat.name"></option>
@@ -521,18 +506,18 @@
 
                 <div class="grid grid-cols-2 gap-4">
                     <div>
-                        <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1">ظˆظ‚طھ ط§ظ„ط¨ط¯ط، (From)</label>
+                        <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1">وقت البدء (From)</label>
                         <input type="time" x-model="newTask.startTime" required class="w-full px-4 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500">
                     </div>
 
                     <div>
-                        <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1">ظˆظ‚طھ ط§ظ„ط§ظ†طھظ‡ط§ط، (To)</label>
+                        <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1">وقت الانتهاء (To)</label>
                         <input type="time" x-model="newTask.endTime" required class="w-full px-4 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500">
                     </div>
                 </div>
 
                 <button type="submit" class="w-full py-3 bg-gradient-to-r from-teal-500 to-indigo-600 hover:from-teal-600 hover:to-indigo-700 text-white font-bold text-sm rounded-xl transition-all shadow-lg shadow-teal-500/20">
-                    ط­ظپط¸ ط§ظ„ظ…ظ‡ظ…ط© ظپظٹ ط§ظ„ط¬ط¯ظˆظ„
+                    حفظ المهمة في الجدول
                 </button>
             </form>
         </div>
@@ -540,7 +525,7 @@
 
     <!-- Footer -->
     <footer class="border-t border-slate-200/50 dark:border-slate-800/50 py-4 text-center text-xs text-slate-500 dark:text-slate-400">
-        <p>طھط·ط¨ظٹظ‚ طھظ†ط¸ظٹظ… ظˆط¥ط¯ط§ط±ط© ط§ظ„ظˆظ‚طھ ط§ظ„ظ…ط®طµطµ &copy; 2026 - ظ…ط²ظˆط¯ ط¨ظ†ط¸ط§ظ… ط¬ط±ط³ ظˆط¨ظˆظ…ظˆط¯ظˆط±ظˆ ط°ظƒظٹ</p>
+        <p>تطبيق تنظيم وإدارة الوقت المخصص &copy; 2026 - مزود بنظام جرس وبومودورو ذكي</p>
     </footer>
 
     <!-- Alpine.js Application Logic -->
@@ -565,11 +550,11 @@
 
                 // Custom Categories List
                 categories: [
-                    { id: 'cat_1', name: 'ط§ظ„ظ†ظˆظ… ظˆط§ظ„ط±ط§ط­ط©', hours: 8, color: '#6366f1' },
-                    { id: 'cat_2', name: 'ط§ظ„ط¹ظ…ظ„ ظˆط§ظ„ط¯ط±ط§ط³ط©', hours: 8, color: '#14b8a6' },
-                    { id: 'cat_3', name: 'ط§ظ„طµط­ط© ظˆط§ظ„ط±ظٹط§ط¶ط©', hours: 1.5, color: '#f59e0b' },
-                    { id: 'cat_4', name: 'ط§ظ„ظˆظ‚طھ ط§ظ„ط´ط®طµظٹ ظˆط§ظ„ط¹ط§ط¦ظ„ط©', hours: 4.5, color: '#ec4899' },
-                    { id: 'cat_5', name: 'ط§ظ„ظ‡ظˆط§ظٹط§طھ ظˆط§ظ„طھط±ظپظٹظ‡', hours: 2, color: '#10b981' }
+                    { id: 'cat_1', name: 'النوم والراحة', hours: 8, color: '#6366f1' },
+                    { id: 'cat_2', name: 'العمل والدراسة', hours: 8, color: '#14b8a6' },
+                    { id: 'cat_3', name: 'الصحة والرياضة', hours: 1.5, color: '#f59e0b' },
+                    { id: 'cat_4', name: 'الوقت الشخصي والعائلة', hours: 4.5, color: '#ec4899' },
+                    { id: 'cat_5', name: 'الهوايات والترفيه', hours: 2, color: '#10b981' }
                 ],
 
                 newCat: {
@@ -580,9 +565,9 @@
 
                 // Custom Tasks
                 tasks: [
-                    { id: 'task_1', title: 'ظ…ط±ط§ط¬ط¹ط© ط§ظ„طھظ‚ط§ط±ظٹط± ظˆط§ظ„ط¨ط±ظٹط¯ ط§ظ„ط¥ظ„ظƒطھط±ظˆظ†ظٹ', categoryId: 'cat_2', startTime: '09:00', endTime: '10:30' },
-                    { id: 'task_2', title: 'طھظ…ط±ظٹظ† ط±ظٹط§ط¶ظٹ ط¨ط§ظ„ط¬ظٹظ…', categoryId: 'cat_3', startTime: '17:00', endTime: '18:15' },
-                    { id: 'task_3', title: 'ظ‚ط±ط§ط،ط© ظˆط³ط§ط¹ط© طھط±ظپظٹظ‡', categoryId: 'cat_5', startTime: '21:00', endTime: '22:00' }
+                    { id: 'task_1', title: 'مراجعة التقارير والبريد الإلكتروني', categoryId: 'cat_2', startTime: '09:00', endTime: '10:30' },
+                    { id: 'task_2', title: 'تمرين رياضي بالجيم', categoryId: 'cat_3', startTime: '17:00', endTime: '18:15' },
+                    { id: 'task_3', title: 'قراءة وساعة ترفيه', categoryId: 'cat_5', startTime: '21:00', endTime: '22:00' }
                 ],
 
                 newTask: {
@@ -691,7 +676,7 @@
 
                 getCatName(catId) {
                     const cat = this.categories.find(c => c.id === catId);
-                    return cat ? cat.name : 'ط¹ط§ظ…';
+                    return cat ? cat.name : 'عام';
                 },
 
                 getCatColor(catId) {
@@ -725,9 +710,9 @@
                     const hrs = Math.floor(mins / 60);
                     const remainingMins = mins % 60;
                     let result = '';
-                    if (hrs > 0) result += `${hrs} ط³ط§ط¹ط© `;
-                    if (remainingMins > 0) result += `${remainingMins} ط¯ظ‚ظٹظ‚ط©`;
-                    return result || '0 ط¯ظ‚ظٹظ‚ط©';
+                    if (hrs > 0) result += `${hrs} ساعة `;
+                    if (remainingMins > 0) result += `${remainingMins} دقيقة`;
+                    return result || '0 دقيقة';
                 },
 
                 getTaskDurationInMinutes(start, end) {
@@ -784,13 +769,13 @@
                     if (this.pomoRunning) {
                         clearInterval(this.pomoTimerInterval);
                         this.pomoRunning = false;
-                        document.title = 'ظ…ظڈظ†ط¸ظگظ‘ظ… ط§ظ„ظˆظ‚طھ ط§ظ„ظ…طھظ‚ط¯ظ…';
+                        document.title = 'مُنظِّم الوقت المتقدم';
                     } else {
                         this.pomoRunning = true;
                         this.pomoTimerInterval = setInterval(() => {
                             if (this.pomoTimeLeft > 0) {
                                 this.pomoTimeLeft--;
-                                document.title = `(${this.formatPomoTime()}) ${this.pomoMode === 'work' ? 'طھط±ظƒظٹط²' : 'ط±ط§ط­ط©'}`;
+                                document.title = `(${this.formatPomoTime()}) ${this.pomoMode === 'work' ? 'تركيز' : 'راحة'}`;
                             } else {
                                 this.onPomodoroComplete();
                             }
@@ -802,7 +787,7 @@
                     clearInterval(this.pomoTimerInterval);
                     this.pomoRunning = false;
                     this.pomoTimeLeft = (this.pomoMode === 'work' ? this.pomoWorkMins : this.pomoBreakMins) * 60;
-                    document.title = 'ظ…ظڈظ†ط¸ظگظ‘ظ… ط§ظ„ظˆظ‚طھ ط§ظ„ظ…طھظ‚ط¯ظ…';
+                    document.title = 'مُنظِّم الوقت المتقدم';
                 },
 
                 setPomodoroTask(title) {
@@ -814,17 +799,17 @@
                 onPomodoroComplete() {
                     clearInterval(this.pomoTimerInterval);
                     this.pomoRunning = false;
-                    document.title = 'ًں”” ط§ظ†طھظ‡ظ‰ ط§ظ„ظˆظ‚طھ!';
+                    document.title = '🔔 انتهى الوقت!';
 
                     // Play Bell Sound
                     this.playChimeSound();
 
                     // Show Visual Toast Notification
                     if (this.pomoMode === 'work') {
-                        this.showToast('ط§ظ†طھظ‡طھ ط¬ظ„ط³ط© ط§ظ„طھط±ظƒظٹط²! ًں””', 'ظ…ظ…طھط§ط² ط¬ط¯ط§ظ‹! ط­ط§ظ† ط§ظ„ظˆظ‚طھ ظ„ط£ط®ط° ظ‚ط³ط· ظ…ظ† ط§ظ„ط±ط§ط­ط©.', 'work');
+                        this.showToast('انتهت جلسة التركيز! 🔔', 'ممتاز جداً! حان الوقت لأخذ قسط من الراحة.', 'work');
                         this.pomoMode = 'break';
                     } else {
-                        this.showToast('ط§ظ†طھظ‡طھ ط§ظ„ط§ط³طھط±ط§ط­ط©! âڑ،', 'ط§ط³طھط¹ط¯ ظ„ظ„ط¹ظˆط¯ط© ظˆط§ظ„طھط±ظƒظٹط² ظپظٹ ظ…ظ‡ظ…طھظƒ ط§ظ„طھط§ظ„ظٹط©.', 'break');
+                        this.showToast('انتهت الاستراحة! ⚡', 'استعد للعودة والتركيز في مهمتك التالية.', 'break');
                         this.pomoMode = 'work';
                     }
 
@@ -894,7 +879,7 @@
                 },
 
                 resetData() {
-                    if (confirm('ظ‡ظ„ ط£ظ†طھ طھط£ظƒط¯ ظ…ظ† ط§ط³طھط¹ط§ط¯ط© ط§ظ„ط¥ط¹ط¯ط§ط¯ط§طھ ظˆط§ظ„ط¨ظٹط§ظ†ط§طھ ط§ظ„ط§ظپطھط±ط§ط¶ظٹط©طں')) {
+                    if (confirm('هل أنت تأكد من استعادة الإعدادات والبيانات الافتراضية؟')) {
                         localStorage.clear();
                         location.reload();
                     }
@@ -904,5 +889,3 @@
     </script>
 </body>
 </html>
-
-
